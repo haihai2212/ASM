@@ -25,7 +25,7 @@ public class serverLiveEvents implements AsteriskServerListener {
     public serverLiveEvents() {
         asteriskServer = new DefaultAsteriskServer("192.168.1.200", "admin", "phanhai2212");
     }
-
+// test ass
     public void run() throws ManagerCommunicationException {
         asteriskServer.addAsteriskServerListener(this);
     }
