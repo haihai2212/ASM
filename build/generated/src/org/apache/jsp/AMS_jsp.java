@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import com.AsmEvenListener.serverlistener;
 import com.AsmEvenListener.serverLiveEvents;
+import com.AsmEvenListener.AsmGetQueueMemember;
 
 public final class AMS_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -48,9 +49,10 @@ public final class AMS_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
 
-    //serverlistener.main(null);
-    serverLiveEvents.main(null);
+    AsmGetQueueMemember asmGetQueueMemember = new AsmGetQueueMemember("192.168.1.200", "admin", "phanhai2212");
+    out.print(asmGetQueueMemember.run());
 
       out.write('\n');
       out.write('\n');
