@@ -8,4 +8,10 @@
       <description>Keep a copy of the generated servlet class' java code.</description>
     </property>
   </jsp-config>
+  <listener>
+    <description>sessionListener</description>
+    <listener-class>
+            com.AsmEvenListener
+        </listener-class>
+  </listener>
 </glassfish-web-app>

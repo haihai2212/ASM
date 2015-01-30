@@ -3,6 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import org.asteriskjava.live.AsteriskQueueEntry;
+import org.apache.jasper.tagplugins.jstl.ForEach;
+import java.util.List;
+import java.util.Collection;
+import org.asteriskjava.live.AsteriskQueue;
 import com.AsmEvenListener.serverlistener;
 import com.AsmEvenListener.serverLiveEvents;
 import com.AsmEvenListener.AsmGetQueueMemember;
@@ -50,9 +55,20 @@ public final class AMS_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
 
     AsmGetQueueMemember asmGetQueueMemember = new AsmGetQueueMemember("192.168.1.200", "admin", "phanhai2212");
-    out.print(asmGetQueueMemember.run());
+    Collection<AsteriskQueue> queues = asmGetQueueMemember.GetAllQueues();
+    for (AsteriskQueue name : queues) {
+        List<AsteriskQueueEntry> queueEntry = name.getEntries();
+        if(!queueEntry.isEmpty()) out.println(queueEntry.get(0).toString());
+        String queue = "\n Queue: " + name.getName();
+        //out.println(queue);
+    }
 
       out.write('\n');
       out.write('\n');
